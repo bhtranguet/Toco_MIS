@@ -1,0 +1,57 @@
+﻿@model CoreMVC.Models.Entity.Employee
+
+@{
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="employeeNumber" class="control-label">Mã nhân viên</label>
+                <input asp-for="employeeNumber" class="form-control" />
+                <span asp-validation-for="employeeNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lastName" class="control-label">Họ</label>
+                <input asp-for="lastName" class="form-control" />
+                <span asp-validation-for="lastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="firstName" class="control-label">Tên</label>
+                <input asp-for="firstName" class="form-control" />
+                <span asp-validation-for="firstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label">Email</label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="officeCode" class="control-label">Mã của hàng</label>
+                <input asp-for="officeCode" class="form-control" />
+                <span asp-validation-for="officeCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="reportsTo" class="control-label">Sếp</label>
+                <input asp-for="reportsTo" class="form-control" />
+                <span asp-validation-for="reportsTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="jobTitle" class="control-label">Chức vụ</label>
+                <input asp-for="jobTitle" class="form-control" />
+                <span asp-validation-for="jobTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Danh sách nhân viên</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

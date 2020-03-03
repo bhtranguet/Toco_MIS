@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CoreMVC.Models.Entity.Document>
+@using CoreMVC.Models.Entity;
+
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="document-screen">
+        <link href="~/css/document/document_list.css" rel="stylesheet" />
+
+        <h2>Tài Liệu</h2>
+        <div class="tool-bar">
+            <div class="btn-back"></div>
+        </div>
+        <div class="document-container d-flex">
+            @foreach (var item in Model)
+            {
+                <a class="document" document-id="@(item.id)" type="@(item.type == 0 ? "folder": "file")" asp-controller="@(item.type == 0 ? "document": "filehandle")" asp-action="@(item.type == 0 ? "list": "dowload")" asp-route-id="@item.id">
+                    <div class="document-icon" type="@(item.type == 0 ? "folder" : "file")" extention="@item.extension"></div>
+                    <div class="document-name">@item.name</div>
+                </a>
+            }
+        </div>
+
+        <div class="document-context-menu">
+            <div class="menu-item" action="add-folder"><span class="menu-icon btn-add-folder"></span>Thêm Folder</div>
+            <div class="menu-item" action="add-file"><span class="menu-icon btn-add-file"></span>Thêm File</div>
+            <div class="menu-item" action="open-folder"><span class="menu-icon btn-open-folder"></span>Mở Folder</div>
+            <div class="menu-item" action="dowload-file"><span class="menu-icon btn-dowload-file"></span>Tải về</div>
+            <div class="menu-item" action="delete-document"><span class="menu-icon btn-delete-document"></span>Xóa</div>
+        </div>
+
+        @*input dùng để upload file*@
+        <input type="file" id="upload-input" multiple name="files" style="display: none"/>
+        <script src="~/js/document/document_list.js"></script>
+
+    </div>

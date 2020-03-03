@@ -1,0 +1,16 @@
+[
+    {
+        "outputFile": "wwwroot/Views/Product/list-product.css",
+        "inputFile": "wwwroot/Views/Product/list-product.scss",
+        "minify": { "enabled": true },
+        "includeInProject": true,
+        "options": { "sourceMap": true }
+    },
+    {
+        "outputFile": "wwwroot/css/document/document_list.css",
+        "inputFile": "wwwroot/css/document/document_list.scss",
+        "minify": { "enabled": true },
+        "includeInProject": true,
+        "options": { "sourceMap": true }
+    }
+]

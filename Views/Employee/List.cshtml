@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CoreMVC.Models.Entity.Employee>
+@using CoreMVC.Models.Entity;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Views/product/list-product.css" rel="stylesheet" />
+<div class="list-product">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mã nhân viên</th>
+                <th>Họ</th>
+                <th>Tên</th>
+                <th>Extention</th>
+                <th>Email</th>
+                <th>Mã của hàng</th>
+                <th>Sếp</th>
+                <th>Chức vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Employee item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.id
+                    </td>
+                    <td>
+                        @item.employeeNumber
+                    </td>
+                    <td>
+                        @item.lastName
+                    </td>
+                    <td>
+                        @item.firstName
+                    </td>
+                    <td>
+                        @item.extension
+                    </td>
+                    <td>
+                        @item.email
+                    </td>
+                    <td>
+                        @item.officeCode
+                    </td>
+                    <td>
+                        @item.reportsTo
+                    </td>
+                    <td>
+                        @item.jobTitle
+                    </td>
+                    <td class="group-button d-flex">
+                        <a class="btn btn-primary" asp-controller="Employee" asp-action="View" asp-route-id="@item.id">Chi tiết</a>
+                        <a class="btn btn-primary" asp-controller="Employee" asp-action="Edit" asp-route-id="@item.id">Sửa</a>
+                        <a class="btn btn-danger" asp-controller="Employee" asp-action="Delete" asp-route-id="@item.id">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

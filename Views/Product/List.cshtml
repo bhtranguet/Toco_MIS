@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CoreMVC.Models.Entity.Product>
+@using CoreMVC.Models.Entity;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Views/product/list-product.css" rel="stylesheet" />
+<div class="list-product">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Dòng sản phẩm</th>
+                <th>Nhà cung cấp</th>
+                <th>Mô tả</th>
+                <th>Số lượng trong kho</th>
+                <th>Giá bán</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Product item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.ID
+                    </td>
+                    <td>
+                        @item.ProductCode
+                    </td>
+                    <td>
+                        @item.ProductName
+                    </td>
+                    <td>
+                        @item.ProductLine
+                    </td>
+                    <td>
+                        @item.ProductVendor
+                    </td>
+                    <td>
+                        @item.ProductDescription
+                    </td>
+                    <td>
+                        @item.QuantityInStock
+                    </td>
+                    <td>
+                        @item.BuyPrice
+                    </td>
+                    <td class="group-button d-flex">
+                        <a class="btn btn-primary" asp-controller="Product" asp-action="View" asp-route-id="@item.ID">Chi tiết</a>
+                        <a class="btn btn-primary" asp-controller="Product" asp-action="Edit" asp-route-id="@item.ID">Sửa</a>
+                        <a class="btn btn-danger" asp-controller="Product" asp-action="Delete" asp-route-id="@item.ID">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
